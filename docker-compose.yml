@@ -18,7 +18,13 @@ services:
     build: ./infra/mysql
     volumes:
       - db-store:/var/lib/mysql
-    platform: linux/x86_64
+    ports:
+      - 3306:3306
+    environment:
+      - DB_DATABASE=laravel
+      - DB_USERNAME=phper
+      - DB_PASSWORD=secret
+    
 
 volumes:
   db-store:
